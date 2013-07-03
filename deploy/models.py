@@ -13,7 +13,8 @@ class Project(models.Model):
     def __unicode__(self):
         return self.name
 
-class CommonSetting(models.Model):
+class IntervalsSetting(models.Model):
+    name = models.CharField(max_length=30)
     deploytimeintervals = models.IntegerField(max_length=20)
     rollbacktimeintervals = models.IntegerField(max_length=20)
 
@@ -21,6 +22,14 @@ class Operation(models.Model):
     name = models.CharField(max_length=30)
     command = models.CharField(max_length=200)
     description = models.CharField(max_length=200, blank=True)
+
+    def __unicode__(self):
+        return self.name
+
+class Person(models.Model):
+    name = models.CharField(max_length=30)
+    telephone = models.CharField(max_length=11)
+    email = models.EmailField(verbose_name='e-mail')
 
     def __unicode__(self):
         return self.name
